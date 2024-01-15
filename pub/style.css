@@ -8,9 +8,9 @@ body {
   align-items: center;
 }
 
-#video {
+/* #video {
   transform: scaleX(-1);
-}
+} */
 
 canvas {
     position: absolute;

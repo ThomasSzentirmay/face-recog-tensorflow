@@ -2,10 +2,10 @@ const video = document.getElementById("video");
 
 // load models
 Promise.all([
-    faceapi.nets.tinyFaceDetector.loadFromUri("./models"),
-    faceapi.nets.faceLandmark68Net.loadFromUri("./models"),
-    faceapi.nets.faceRecognitionNet.loadFromUri("./models"),
-    faceapi.nets.faceExpressionNet.loadFromUri("./models")
+    faceapi.nets.tinyFaceDetector.loadFromUri("../models"),
+    faceapi.nets.faceLandmark68Net.loadFromUri("../models"),
+    faceapi.nets.faceRecognitionNet.loadFromUri("../models"),
+    faceapi.nets.faceExpressionNet.loadFromUri("../models")
 ]).then(vid)
 
 // cam functionality
@@ -28,7 +28,7 @@ video.addEventListener("play", () => {
             new faceapi.TinyFaceDetectorOptions()).withFaceLandmarks()
             .withFaceExpressions();
         const resizedDetections = faceapi.resizeResults(detections, displaySize);
-        canvas.getContent("2d").clearRect(0, 0, canvas.width, canvas.height)
+        canvas.getContext("2d").clearRect(0, 0, canvas.width, canvas.height)
         faceapi.draw.drawDetections(canvas, resizedDetections);
     }, 100)
 })
