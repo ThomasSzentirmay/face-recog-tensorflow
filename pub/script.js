@@ -29,6 +29,11 @@ video.addEventListener("play", () => {
             .withFaceExpressions();
         const resizedDetections = faceapi.resizeResults(detections, displaySize);
         canvas.getContext("2d").clearRect(0, 0, canvas.width, canvas.height)
+        // box
         faceapi.draw.drawDetections(canvas, resizedDetections);
+        // face net
+        faceapi.draw.drawFaceLandmarks(canvas, resizedDetections);
+        // emotion rating
+        faceapi.draw.drawFaceExpressions(canvas, resizedDetections);
     }, 100)
 })
